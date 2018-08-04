@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.background-colour {
+  background: linear-gradient(to top left, #33ccff 24%, #ff99cc 120%);
+  background-repeat: no-repeat;
+}

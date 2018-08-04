@@ -1,0 +1,130 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">Lotus Lab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+          </div>
+        </div>
+        <form class="form-inline">
+          <button type="button" class="btn btn-md btn-outline-primary mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
+          <button type="button" class="btn btn-md btn-outline-dark my-2 my-sm-0" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+  <!-- Log in Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Log In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+              <mat-form-field hintLabel="Correct Username" appearance="legacy" class="col-12">
+                <mat-label>Enter username</mat-label>
+                <input matInput #loginUsername type="text" [(ngModel)] = "usernameLogin" (keyup) = "validateUsername(username)" placeholder="ojaspatwardhan">
+                <mat-icon matSuffix>{{icon}}</mat-icon>
+                <mat-hint align="end">{{loginUsername.value ? loginUsername.value.length : 0}}/10</mat-hint>
+              </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field hintLabel="Enter correct password" appearance="legacy" class="col-12">
+                <mat-label>Enter Password</mat-label>
+                <input matInput #loginPassword type="text" [(ngModel)] = "passwordLogin" (keyup) = "validatePassword(password)" placeholder="ojaspatwardhan">
+                <mat-icon matSuffix>{{icon}}</mat-icon>
+                <mat-hint align="end">{{loginPassword.value ? loginPassword.value.length : 0}}/10</mat-hint>
+              </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <a href="/forgot-password"><small>Forgot Password?</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Sign up modal -->
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Sign Up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+              <mat-form-field hintLabel="Max 15 characters" appearance="legacy" class="col-12">
+                <mat-label>Enter username</mat-label>
+                <input matInput #inputUsername type="text" [(ngModel)] = "username" (keyup) = "validateUsername(username)" placeholder="ojaspatwardhan">
+                <mat-icon matSuffix>{{icon1}}</mat-icon>
+                <mat-hint align="end">{{inputUsername.value ? inputUsername.value.length : 0}}/15</mat-hint>
+              </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field hintLabel="Password" appearance="legacy" class="col-12">
+                <mat-label>Enter Password</mat-label>
+                <input type="password" matInput #inputPassword [(ngModel)] = "password" placeholder="ojaspatwardhan">
+                <mat-icon matSuffix>{{icon2}}</mat-icon>
+                <mat-hint align="end">{{inputPassword.value ? inputPassword.value.length : 0}}/8</mat-hint>
+              </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field hintLabel="Confirm Password" appearance="legacy" class="col-12">
+              <mat-label>Confirm Password</mat-label>
+              <input type="password" matInput #password2 [(ngModel)] = "confirmPassword" (keyup) = "validatePassword(password, confirmPassword)" placeholder="ojaspatwardhan">
+              <mat-icon matSuffix>{{icon2}}</mat-icon>
+              <mat-hint align="end">{{password2.value ? password2.value.length : 0}}/8</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div id="errorMessage" class="alert alert-danger" role="alert" style="display: none;">
+              {{errorMessage}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 5%; margin-bottom: 15%;">
+  <div class="col-4">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer-component></app-footer-component>
+</div>
