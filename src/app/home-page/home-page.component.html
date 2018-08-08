@@ -13,14 +13,21 @@
             <a class="nav-item nav-link" href="#">Pricing</a>
           </div>
         </div>
-        <form class="form-inline">
+        <form class="form-inline" *ngIf="cookieValue == ''; else loggedIn">
           <button type="button" class="btn btn-md btn-outline-primary mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
           <button type="button" class="btn btn-md btn-outline-dark my-1 mr-sm-2" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
-          <button routerLink="/make-appointment" type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2">Make an appointment</button>
+          <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
         </form>
       </nav>
     </div>
   </div>
+  <ng-template #loggedIn>
+    <form class="form-inline">
+      <button type="button" class="btn btn-md btn-outline-danger mr-sm-2" (click)="logout()">Log Out</button>
+      <button type="button" class="btn btn-md btn-outline-dark my-1 mr-sm-2" routerLink="/profile">Profile</button>
+      <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
+    </form>
+  </ng-template>
   <!-- Log in Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -36,7 +43,7 @@
           <div class="row">
               <mat-form-field hintLabel="Correct Username" appearance="legacy" class="col-12">
                 <mat-label>Enter username</mat-label>
-                <input matInput #loginUsername type="text" [(ngModel)] = "usernameLogin" (keyup) = "validateUsername(username)" placeholder="ojaspatwardhan">
+                <input id="usrname" matInput #loginUsername type="text" [(ngModel)] = "usernameLogin" placeholder="ojaspatwardhan">
                 <mat-icon matSuffix>{{icon}}</mat-icon>
                 <mat-hint align="end">{{loginUsername.value ? loginUsername.value.length : 0}}/10</mat-hint>
               </mat-form-field>
@@ -44,7 +51,7 @@
           <div class="row">
               <mat-form-field hintLabel="Enter correct password" appearance="legacy" class="col-12">
                 <mat-label>Enter Password</mat-label>
-                <input matInput #loginPassword type="text" [(ngModel)] = "passwordLogin" (keyup) = "validatePassword(password)" placeholder="ojaspatwardhan">
+                <input id="passwd" matInput #loginPassword type="password" [(ngModel)] = "passwordLogin" placeholder="ojaspatwardhan">
                 <mat-icon matSuffix>{{icon}}</mat-icon>
                 <mat-hint align="end">{{loginPassword.value ? loginPassword.value.length : 0}}/10</mat-hint>
               </mat-form-field>
@@ -54,11 +61,18 @@
               <a href="/forgot-password"><small>Forgot Password?</small></a>
             </div>
           </div>
+          <div class="row">
+            <div class="col-12">
+              <div id="errorMessage" class="alert alert-danger" role="alert" style="display: none;">
+                {{errorMessage}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Log In</button>
+        <button type="button" class="btn btn-primary" (click)="login(usernameLogin, passwordLogin)">Log In</button>
       </div>
     </div>
   </div>
@@ -110,22 +124,115 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Sign Up</button>
+        <button type="button" class="btn btn-primary" (click)="onRegister(username, password)">Sign Up</button>
       </div>
     </div>
   </div>
 </div>
-<div class="row" style="margin-top: 5%; margin-bottom: 15%;">
-  <div class="col-4">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+<!-- Card Columns -->
+<div class="row" style="margin-top: 5%; margin-bottom: 5%;">
+  <div class="card-columns">
+  <div class="card">
+    <div class="card-header">
+      <h5>Basic Package</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Tests included -
+      </p>
+      <ul>
+        <li>
+          CBC. <small>(Complete Blood Count)</small>
+        </li>
+        <li>
+          ESR.
+        </li>
+        <li>
+          Blood Sugar Fasting.
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer text-muted">
+      <button class="btn btn-md btn-outline-info">Find more</button>
     </div>
   </div>
+  <div class="card">
+    <div class="card-header">
+      Comprehensive
+    </div>
+    <div class="card-body">
+      <p>
+        Tests included -
+      </p>
+      <p>
+        Basic +
+      </p>
+      <ul>
+        <li>
+          Lipid Profile.
+        </li>
+        <li>
+          Liver Profile.
+        </li>
+        <li>
+          Kidney Profile.
+        </li>
+        <li>
+          Special test - CRP.
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer text-muted">
+      <button class="btn btn-md btn-outline-info">Find more</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Ultra</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Comprehensive + T3/ T4/ TSH.</p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-md btn-outline-info">Find more</button>
+    </div>
+  </div>
+  <div class="card text-center p-3">
+    <blockquote class="blockquote mb-0">
+      <h5 class="card-title">
+        Premium.
+      </h5>
+      <p>
+        Ultra + Vit D, Vit B12.
+      </p>
+      <footer class="blockquote-footer">
+        <button class="btn btn-md btn-outline-info">Find more</button>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Obesity</h5>
+        <ul class="card-text">
+          <li>
+            Blood Sugar Fasting.
+          </li>
+          <li>
+            Blood Sugar Post Lunch.
+          </li>
+          <li>
+            Insulin Fasting.
+          </li>
+          <li>
+            Insulin Post Lunch.
+          </li>
+        </ul>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-md btn-outline-info">Find more</button>
+    </div>
+  </div>
+</div>
 </div>
 <app-footer-component></app-footer-component>
 </div>

@@ -5,6 +5,8 @@ import { routing } from './app.routing';
 import { FormsModule } from '@angular/forms';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 import { AppointmentServiceClient } from './services/appointment.service.client';
+import { CookieService } from 'ngx-cookie-service';
+import { UserServiceClient } from './services/user.service.client';
 
 import {
   MatFormFieldModule,
@@ -15,7 +17,8 @@ import {
   MatDialogModule,
   MatIconModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatCardModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -24,6 +27,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { FooterComponentComponent } from './footer-component/footer-component.component';
 import { MakeAppointmentComponent } from './make-appointment/make-appointment.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+
+import { FilterPipe} from './filters/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,9 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     ForgotPasswordComponent,
     FooterComponentComponent,
     MakeAppointmentComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    ProfilePageComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -48,10 +56,13 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
     DlDateTimePickerDateModule
   ],
   providers: [
-    AppointmentServiceClient
+    AppointmentServiceClient,
+    UserServiceClient,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
