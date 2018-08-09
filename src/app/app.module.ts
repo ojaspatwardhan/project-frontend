@@ -7,6 +7,8 @@ import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 import { AppointmentServiceClient } from './services/appointment.service.client';
 import { CookieService } from 'ngx-cookie-service';
 import { UserServiceClient } from './services/user.service.client';
+import { SymptomCheckerServiceClient } from './services/symptom-checker.service.client';
+
 
 import {
   MatFormFieldModule,
@@ -28,8 +30,11 @@ import { FooterComponentComponent } from './footer-component/footer-component.co
 import { MakeAppointmentComponent } from './make-appointment/make-appointment.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { TechnicianPageComponent } from './technician-page/technician-page.component';
+import { SymptomCheckerComponent } from './symptom-checker/symptom-checker.component';
 
 import { FilterPipe} from './filters/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +45,9 @@ import { FilterPipe} from './filters/filter.pipe';
     MakeAppointmentComponent,
     AdminPageComponent,
     ProfilePageComponent,
-    FilterPipe
+    FilterPipe,
+    TechnicianPageComponent,
+    SymptomCheckerComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +69,7 @@ import { FilterPipe} from './filters/filter.pipe';
   providers: [
     AppointmentServiceClient,
     UserServiceClient,
+    SymptomCheckerServiceClient,
     CookieService
   ],
   bootstrap: [AppComponent]

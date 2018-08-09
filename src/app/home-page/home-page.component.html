@@ -28,6 +28,129 @@
       <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
     </form>
   </ng-template>
+  <div class="row" style="margin-top: 2%;">
+    <div class="col-12">
+      <h4>Packages</h4>
+    </div>
+  </div>
+  <!-- Card deck -->
+  <div class="row" style="margin-top: 2%;">
+    <div class="col-12">
+      <div class="card-deck">
+            <div class="card">
+              <div class="card-header">
+                <h5>Basic Package</h5>
+              </div>
+              <div class="card-body">
+                <p>
+                  Tests included -
+                </p>
+                <ul>
+                  <li>
+                    CBC. <small>(Complete Blood Count)</small>
+                  </li>
+                  <li>
+                    ESR.
+                  </li>
+                  <li>
+                    Blood Sugar Fasting.
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer text-muted">
+                <button class="btn btn-md btn-outline-info">Find more</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                Comprehensive
+              </div>
+              <div class="card-body">
+                <p>
+                  Tests included -
+                </p>
+                <p>
+                  Basic +
+                </p>
+                <ul>
+                  <li>
+                    Lipid Profile.
+                  </li>
+                  <li>
+                    Liver Profile.
+                  </li>
+                  <li>
+                    Kidney Profile.
+                  </li>
+                  <li>
+                    Special test - CRP.
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer text-muted">
+                <button class="btn btn-md btn-outline-info">Find more</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Ultra</h5>
+              </div>
+              <div class="card-body">
+                <p>Comprehensive + T3/ T4/ TSH.</p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-md btn-outline-info">Find more</button>
+              </div>
+            </div>
+      </div>
+      <div class="row" style="margin-top: 2%; margin-bottom: 3%;">
+        <div class="col-12">
+          <div class="card-deck">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Premium.</h5>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Ultra + Vit D, Vit B12.
+                    </p>
+                  </div>
+                  <div class="card-footer text-muted">
+                    <button class="btn btn-md btn-outline-info">Find more</button>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    Obesity
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Tests included -
+                    </p>
+                    <ul class="card-text">
+                      <li>
+                        Blood Sugar Fasting.
+                      </li>
+                      <li>
+                        Blood Sugar Post Lunch.
+                      </li>
+                      <li>
+                        Insulin Fasting.
+                      </li>
+                      <li>
+                        Insulin Post Lunch.
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-footer text-muted">
+                    <button class="btn btn-md btn-outline-info">Find more</button>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Log in Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -128,111 +251,6 @@
       </div>
     </div>
   </div>
-</div>
-<!-- Card Columns -->
-<div class="row" style="margin-top: 5%; margin-bottom: 5%;">
-  <div class="card-columns">
-  <div class="card">
-    <div class="card-header">
-      <h5>Basic Package</h5>
-    </div>
-    <div class="card-body">
-      <p>
-        Tests included -
-      </p>
-      <ul>
-        <li>
-          CBC. <small>(Complete Blood Count)</small>
-        </li>
-        <li>
-          ESR.
-        </li>
-        <li>
-          Blood Sugar Fasting.
-        </li>
-      </ul>
-    </div>
-    <div class="card-footer text-muted">
-      <button class="btn btn-md btn-outline-info">Find more</button>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      Comprehensive
-    </div>
-    <div class="card-body">
-      <p>
-        Tests included -
-      </p>
-      <p>
-        Basic +
-      </p>
-      <ul>
-        <li>
-          Lipid Profile.
-        </li>
-        <li>
-          Liver Profile.
-        </li>
-        <li>
-          Kidney Profile.
-        </li>
-        <li>
-          Special test - CRP.
-        </li>
-      </ul>
-    </div>
-    <div class="card-footer text-muted">
-      <button class="btn btn-md btn-outline-info">Find more</button>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <h5 class="card-title">Ultra</h5>
-    </div>
-    <div class="card-body">
-      <p class="card-text">Comprehensive + T3/ T4/ TSH.</p>
-    </div>
-    <div class="card-footer">
-      <button class="btn btn-md btn-outline-info">Find more</button>
-    </div>
-  </div>
-  <div class="card text-center p-3">
-    <blockquote class="blockquote mb-0">
-      <h5 class="card-title">
-        Premium.
-      </h5>
-      <p>
-        Ultra + Vit D, Vit B12.
-      </p>
-      <footer class="blockquote-footer">
-        <button class="btn btn-md btn-outline-info">Find more</button>
-      </footer>
-    </blockquote>
-  </div>
-  <div class="card text-center">
-    <div class="card-body">
-      <h5 class="card-title">Obesity</h5>
-        <ul class="card-text">
-          <li>
-            Blood Sugar Fasting.
-          </li>
-          <li>
-            Blood Sugar Post Lunch.
-          </li>
-          <li>
-            Insulin Fasting.
-          </li>
-          <li>
-            Insulin Post Lunch.
-          </li>
-        </ul>
-    </div>
-    <div class="card-footer">
-      <button class="btn btn-md btn-outline-info">Find more</button>
-    </div>
-  </div>
-</div>
 </div>
 <app-footer-component></app-footer-component>
 </div>

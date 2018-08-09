@@ -70,6 +70,9 @@ export class HomePageComponent implements OnInit {
           if(user.role == "admin") {
             this.router.navigate(['admin-page']);
           }
+          else if(user.role == "technician") {
+            this.router.navigate(['technician-page']);
+          }
           else {
             this.router.navigate(['profile']);
           }
@@ -109,6 +112,8 @@ export class HomePageComponent implements OnInit {
         if(this.validUser) {
           this.service.createUser(username, password)
           .then(() => {
+            this.cookieService.set("username", username);
+            this.cookieValue = this.cookieService.get("username");
             $("#signUpModal").modal("toggle");
             this.loggedIn = true;
             this.router.navigate(['profile']);
