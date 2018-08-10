@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StorageServiceModule} from 'angular-webstorage-service';
 import { NgModule } from '@angular/core';
 import { routing } from './app.routing';
 import { FormsModule } from '@angular/forms';
@@ -34,6 +35,7 @@ import { TechnicianPageComponent } from './technician-page/technician-page.compo
 import { SymptomCheckerComponent } from './symptom-checker/symptom-checker.component';
 
 import { FilterPipe} from './filters/filter.pipe';
+import { ServicesPageComponent } from './services-page/services-page.component';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { FilterPipe} from './filters/filter.pipe';
     ProfilePageComponent,
     FilterPipe,
     TechnicianPageComponent,
-    SymptomCheckerComponent
+    SymptomCheckerComponent,
+    ServicesPageComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { FilterPipe} from './filters/filter.pipe';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    DlDateTimePickerDateModule
+    DlDateTimePickerDateModule,
+    StorageServiceModule
   ],
   providers: [
     AppointmentServiceClient,

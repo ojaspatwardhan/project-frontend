@@ -8,9 +8,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link active" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" routerLink="/services-page">Packages</a>
+            <a class="nav-item nav-link" routerLink="/symptom-checker">Symptom Checker</a>
           </div>
         </div>
         <form class="form-inline" *ngIf="cookieValue == ''; else loggedIn">
@@ -108,7 +108,7 @@
           <div class="card-deck">
                 <div class="card">
                   <div class="card-header">
-                    <h5>Premium.</h5>
+                    <h5>Premium</h5>
                   </div>
                   <div class="card-body">
                     <p>
