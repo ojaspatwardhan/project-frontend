@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg" style="background-color: #e3f2fd;">
         <a class="navbar-brand" href="#">Lotus Lab</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -9,8 +9,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link" routerLink="/services-page">Packages</a>
+            <a class="nav-item nav-link" routerLink="/symptom-checker">Symptom Checker</a>
           </div>
         </div>
         <form class="form-inline" *ngIf="cookieValue == ''; else loggedIn">
