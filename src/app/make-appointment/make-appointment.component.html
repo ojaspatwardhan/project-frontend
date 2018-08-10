@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">Lotus Lab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+          </div>
+        </div>
+        <form class="form-inline" *ngIf="cookieValue == ''; else loggedIn">
+          <button type="button" class="btn btn-md btn-outline-primary mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
+          <button type="button" class="btn btn-md btn-outline-dark my-1 mr-sm-2" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+          <button routerLink="/make-appointment" type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2">Make an appointment</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 2%;margin-left: 40%;">
+      <input class="col-4" placeholder="Select date and time" id="picker1" [(ngModel)]="startDateTime" />
+  </div>
+  <div class="row" style="margin-top: 2%;">
+    <div class="col-6">
+      <button mat-raised-button color="primary" (click)="createAppointment()" style="margin-bottom: 35%; margin-top: 1%; margin-left: 90%;">Book</button>
+    </div>
+    <div class="col-6" *ngIf="slotIsAvailable == true">
+      <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#confirmAppointmentModal" style="margin-bottom: 35%; margin-top: 1%;">Confirm</button>
+    </div>
+  </div>
+  <div class="row">
+    <button type="button" class="btn btn-md btn-outline-info" (click)="getResources()" style="margin-bottom: 35%; margin-top: 1%;">Test button</button>
+  </div>
+  <!-- Confirm appointment modal -->
+  <div class="modal fade" id="confirmAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Confirm Appointment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+              <mat-form-field hintLabel="Email" appearance="legacy" class="col-12">
+                <mat-label>Enter email</mat-label>
+                <input matInput [(ngModel)]="email" type="email" placeholder="ojas.patwardhan@gmail.com">
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field hintLabel="First Name" appearance="legacy" class="col-12">
+                <mat-label>First Name</mat-label>
+                <input [(ngModel)]="firstName" type="text" matInput placeholder="Ojas">
+              </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field hintLabel="Last Name" appearance="legacy" class="col-12">
+              <mat-label>Last Name</mat-label>
+              <input [(ngModel)]="lastName" type="text" matInput placeholder="Patwardhan">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field hintLabel="Phone" appearance="legacy" class="col-12">
+              <mat-label>Phone</mat-label>
+              <input [(ngModel)]="phone" type="number" matInput placeholder="8879247112">
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div id="errorMessage" class="alert alert-danger" role="alert" style="display: none;">
+              {{errorMessage}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="confirmAppointment()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loggedIn>
+  <form class="form-inline">
+    <button type="button" class="btn btn-md btn-outline-danger mr-sm-2" (click)="logout()">Log Out</button>
+    <button type="button" class="btn btn-md btn-outline-dark my-1 mr-sm-2" routerLink="/profile">Profile</button>
+  </form>
+</ng-template>
+  <app-footer-component></app-footer-component>
+</div>

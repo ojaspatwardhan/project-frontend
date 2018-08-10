@@ -1,0 +1,151 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">Lotus Lab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+          </div>
+        </div>
+        <form class="form-inline" *ngIf="cookieValue == ''; else loggedIn">
+          <button type="button" class="btn btn-md btn-outline-primary mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
+          <button type="button" class="btn btn-md btn-outline-dark my-1 mr-sm-2" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+          <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+  <form class="form-inline my-2">
+    <input class="form-control col-4" name="appointment" [(ngModel)]="searchText" type="search" placeholder="Enter customer name with capitalization" />
+    <input class="form-control col-4 ml-2 mr-2" name="status" [(ngModel)]="statusText" type="search" placeholder="Enter appointment status" />
+    <button type="button" class="btn btn-md btn-outline-dark ml-2" (click)="showCustomersModal()">Customers</button>
+    <button type="button" class="btn btn-md btn-outline-warning ml-2" (click)="showUsersModal()">Users</button>
+  </form>
+  <!-- Table for appointment list -->
+  <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Confirmation Number</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status <small>(IN - Initial, CN - Cancelled, BK - Booked)</small></th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of allAppointments | filter : searchText : statusText">
+      <th scope="row">{{appointment.id}}</th>
+      <td>{{appointment.confirmationNumber}}</td>
+      <td>{{appointment.date}}</td>
+      <td>{{appointment.status}}</td>
+      <td>{{appointment.name}}</td>
+      <td><button type="button" *ngIf="appointment.status == 'BK' || appointment.status == 'RS'; else statusIn" class="btn btn-md btn-outline-danger" (click)="cancelAppointment(appointment.id)">Cancel</button></td>
+      <ng-template #statusIn>
+        <div class="col-2" >
+          <button type="button" class="btn btn-md btn-outline-danger" (click)="deleteAppointment(appointment.id, appointment.status)">Delete</button>
+        </div>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>
+  <!-- Customer list modal -->
+  <div class="modal fade" id="customersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Customers</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-4">
+              <h5>Customer Name</h5>
+            </div>
+            <div class="col-4">
+              <h5>Customer ID</h5>
+            </div>
+            <div class="col-4">
+              <h5>Customer Email</h5>
+            </div>
+          </div>
+          <div class="row mt-2" *ngFor="let customer of customers">
+            <div class="col-4">
+              <h6>{{customer.name}}</h6>
+            </div>
+            <div class="col-4">
+              <h6>{{customer.id}}</h6>
+            </div>
+            <div class="col-4">
+              <h6>{{customer.email}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Users modal -->
+<div class="modal fade" id="usersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Users</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-3">
+            <h5>User Name</h5>
+          </div>
+          <div class="col-3">
+            <h5>Password</h5>
+          </div>
+          <div class="col-3">
+            <h5>Customer Email</h5>
+          </div>
+          <div class="col-3">
+
+          </div>
+        </div>
+        <div class="row mt-2" *ngFor="let user of users">
+          <div class="col-3">
+            <h6>{{user.firstName + " " + user.lastName}}</h6>
+          </div>
+          <div class="col-3">
+            <h6>{{user.password}}</h6>
+          </div>
+          <div class="col-3">
+            <h6>{{user.email}}</h6>
+          </div>
+          <button style="margin-left: 12%;" type="button" class="btn btn-sm btn-outline-danger col-1" (click)="deleteUser(user._id)">Remove</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+<ng-template #loggedIn>
+  <form class="form-inline">
+    <button type="button" class="btn btn-md btn-outline-danger mr-sm-2" (click)="logout()">Log Out</button>
+    <button type="button" class="btn btn-md btn-outline-dark my-1 mr-sm-2" routerLink="/profile">Profile</button>
+  </form>
+</ng-template>
+</div>
