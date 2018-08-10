@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg" style="background-color: #e3f2fd;">
         <a class="navbar-brand" href="#">Lotus Lab</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -56,14 +56,14 @@
       <div class="row">
         <button mat-raised-button color="accent" class="col-md-12" (click) = "updateUser(user)">Update</button>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <button mat-raised-button color="primary" class="col-md-12" (click) = "logout()" style="margin-top: 2%;">Logout</button>
-      </div>
-      <div class="row">
+      </div> -->
+      <!-- <div class="row">
         <button mat-raised-button routerLink="/home" class="col-md-12" style="margin-top: 2%;">Home</button>
-      </div>
-      <div class="row" *ngIf="user.username == 'admin'">
-        <button mat-raised-button routerLink="/admin" class="col-md-12" style="margin-top: 2%;">Admin Page</button>
+      </div> -->
+      <div class="row" *ngIf="user.role == 'admin'">
+        <button mat-raised-button color="primary" routerLink="/admin" class="col-md-12" style="margin-top: 2%;">Admin Page</button>
       </div>
     </div>
     <div *ngIf="isAppointment == true" class="col-4" style="margin-left: 5%;">
