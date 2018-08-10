@@ -1,12 +1,13 @@
 export class UserServiceClient {
   heroku_url = "https://student-enrollment-backend.herokuapp.com";
+  projectHerokuUrl = "https://lotus-lab-backend.herokuapp.com/";
   local_url = "http://localhost:4000";
   createUser(username, password) {
     const user = {
       username: username,
       password: password
     };
-    return fetch("http://localhost:4000/api/user", {
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/user", {
       body: JSON.stringify(user),
       credentials: "include",
       method: "POST",
@@ -17,18 +18,18 @@ export class UserServiceClient {
   }
 
   profile() {
-    return fetch("http://localhost:4000/api/profile",{
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/profile",{
       credentials: "include",
     }).then(response => response.json());
   }
 
   findUserById(userId) {
     console.log("inside user.service.client.ts" + " " +userId);
-    return fetch("http://localhost:4000/api/user/" + userId).then(response => response.json());
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/user/" + userId).then(response => response.json());
   }
 
   updateUser(user) {
-    return fetch("http://localhost:4000/api/profile", {
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/profile", {
       method: "PUT",
       credentials: "include",
       body: JSON.stringify(user),
@@ -39,20 +40,20 @@ export class UserServiceClient {
   }
 
   findAllUsers() {
-    return fetch("http://localhost:4000/api/user", {
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/user", {
       credentials: "include"
     }).then(response => response.json());
   }
 
   removeUser(id) {
-    return fetch("http://localhost:4000/api/delete/" + id, {
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/delete/" + id, {
       method: "DELETE"
     })
     .then(response => console.log(response.json()));
   }
 
   logout() {
-    return fetch("http://localhost:4000/api/logout", {
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/logout", {
       method: "POST",
       credentials: "include"
     });
@@ -60,7 +61,7 @@ export class UserServiceClient {
 
   login(username, password) {
     var credentials = {username, password};
-    return fetch("http://localhost:4000/api/login", {
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/login", {
       method: "POST",
       body: JSON.stringify(credentials),
       credentials: "include",
