@@ -21,10 +21,78 @@
       </nav>
     </div>
   </div>
-  <div class="card-group mt-5" style="margin-bottom: 15%;">
+  <div class="accordion mt-5" id="accordionExample" style="margin-bottom: 15%;">
   <div class="card">
-    <div class="card-body">
+    <div class="card-header text-center" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-md btn-outline-info" type="button" data-toggle="collapse" data-target="#basic" aria-expanded="true" aria-controls="collapseOne">
+          Basic
+        </button>
+      </h5>
+    </div>
+
+    <div id="basic" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">Complete Blood Count</li>
+          <li class="list-group-item">ESR</li>
+          <li class="list-group-item">Blood Sugar Fasting</li>
+          <li class="list-group-item">Blood Sugar Post Lunch</li>
+          <li class="list-group-item">Total Cholesterol</li>
+          <li class="list-group-item">Triglycerides</li>
+          <li class="list-group-item">Total Proteins</li>
+          <li class="list-group-item">SGPT</li>
+          <li class="list-group-item">Uric Acid</li>
+          <li class="list-group-item">Calcium</li>
+          <li class="list-group-item">Phosphorous</li>
+          <li class="list-group-item">Creatinine</li>
+          <li class="list-group-item">BUN</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header text-center" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-md btn-outline-info" type="button" data-toggle="collapse" data-target="#comprehensive" aria-expanded="true" aria-controls="collapseOne">
+          Comprehensive
+        </button>
+      </h5>
+    </div>
+
+    <div id="comprehensive" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">Complete Blood Count</li>
+          <li class="list-group-item">ESR</li>
+          <li class="list-group-item">Blood Sugar Fasting</li>
+          <li class="list-group-item">Blood Sugar Post Lunch</li>
+        </ul>
+        <b>Lipid Profile</b>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="card-group mt-5" style="margin-bottom: 15%;">
+  <div class="card">
+    <div class="card-header">
       <h5 class="card-title">Basic</h5>
+    </div>
+    <div class="card-body">
       <ul class="list-group">
         <li class="list-group-item">Complete Blood Count</li>
         <li class="list-group-item">ESR</li>
@@ -43,10 +111,10 @@
     </div>
   </div>
   <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Comprehensive</h5>
+    </div>
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
   <div class="card">
@@ -56,7 +124,7 @@
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
-</div>
+</div> -->
   <app-footer-component></app-footer-component>
   <ng-template #loggedIn>
     <form class="form-inline">
