@@ -90,6 +90,7 @@ export class ProfilePageComponent implements OnInit {
     this.service.findUserById(this.userId).then((user) => {
       this.user = user;
       this.user.appointmentId = this.newAppointmentId;
+      this.appointmentId = this.newAppointmentId;
       this.service.updateUser(this.user).then(() => {
         $("#availableTimesModal").modal("toggle");
         this.appointmentService.getAppointment(this.accessToken, this.newAppointmentId)
