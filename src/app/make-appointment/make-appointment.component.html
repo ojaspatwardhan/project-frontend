@@ -29,12 +29,12 @@
       <button mat-raised-button color="primary" (click)="createAppointment()" style="margin-bottom: 35%; margin-top: 1%; margin-left: 90%;">Book</button>
     </div>
     <div class="col-6" *ngIf="slotIsAvailable == true">
-      <button type="button" class="btn btn-md btn-info" data-toggle="modal" data-target="#confirmAppointmentModal" style="margin-bottom: 35%; margin-top: 1%;">Confirm</button>
+      <button type="button" mat-raised-button color="accent" (click)="showAppointmentModal()" style="margin-bottom: 35%; margin-top: 1%;">Confirm</button>
     </div>
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <button type="button" class="btn btn-md btn-outline-info" (click)="getResources()" style="margin-bottom: 35%; margin-top: 1%;">Test button</button>
-  </div>
+  </div> -->
   <!-- Confirm appointment modal -->
   <div class="modal fade" id="confirmAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

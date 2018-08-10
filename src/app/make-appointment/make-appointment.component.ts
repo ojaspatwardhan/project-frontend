@@ -113,6 +113,10 @@ export class MakeAppointmentComponent implements OnInit {
     });
   }
 
+  showAppointmentModal() {
+    $("#confirmAppointmentModal").modal("show");
+  }
+
   logout() {
     this.cookieService.delete("username");
     this.userService.logout().then(() => this.router.navigate(['home']));
