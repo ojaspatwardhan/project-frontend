@@ -154,6 +154,13 @@
     </div>
   </div>
   <app-footer-component></app-footer-component>
+  <ng-template #loggedIn>
+    <form class="form-inline">
+      <button type="button" class="btn btn-md btn-outline-danger mr-sm-2" (click)="logout()">Log Out</button>
+      <button type="button" class="btn btn-md btn-outline-light my-1 mr-sm-2" routerLink="/profile">Profile</button>
+      <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
+    </form>
+  </ng-template>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfmzgHCt7VlT0kyyNs44EGs43RAKLcb8M&callback=initMap"
   type="text/javascript"></script>
 </div>
