@@ -101,11 +101,22 @@ export class HomePageComponent implements OnInit {
   }
 
   onRegister(username, password) {
-    console.log("working");
       this.service.findAllUsers().then((users) => {
         users.map((user) => {
           if(user.username == username) {
+            console.log("inside if");
             this.validUser = false;
+            this.errorMessage = "Username is already taken";
+            $("#RegisterErrorMessage").slideDown();
+            return;
+          }
+          else if(this.password.length < 8 || this.confirmPassword.length < 8) {
+            this.validUser = false;
+            this.errorMessage = "Password has to be at least 8 characters in length";
+            $("#RegisterErrorMessage").slideDown();
+          }
+          else {
+            this.validUser = true;
           }
         })
       }).then(() => {

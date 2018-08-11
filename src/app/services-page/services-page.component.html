@@ -21,6 +21,105 @@
       </nav>
     </div>
   </div>
+  <!-- Log in Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Log In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+              <mat-form-field hintLabel="Correct Username" appearance="legacy" class="col-12">
+                <mat-label>Enter username</mat-label>
+                <input id="usrname" matInput #loginUsername type="text" [(ngModel)] = "usernameLogin" placeholder="ojaspatwardhan">
+                <mat-icon matSuffix>account_circle</mat-icon>
+              </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field hintLabel="Enter correct password" appearance="legacy" class="col-12">
+                <mat-label>Enter Password</mat-label>
+                <input id="passwd" matInput #loginPassword type="password" [(ngModel)] = "passwordLogin" placeholder="ojaspatwardhan">
+                <mat-icon matSuffix>person_outline</mat-icon>
+              </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <a href="/forgot-password"><small>Forgot Password?</small></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div id="errorMessage" class="alert alert-danger" role="alert" style="display: none;">
+                {{errorMessage}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="login(usernameLogin, passwordLogin)">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sign up modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalCenterTitle">Sign Up</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+            <mat-form-field hintLabel="Max 15 characters" appearance="legacy" class="col-12">
+              <mat-label>Enter username</mat-label>
+              <input matInput #inputUsername type="text" [(ngModel)] = "username" (keyup) = "validateUsername(username)" placeholder="ojaspatwardhan">
+              <mat-icon matSuffix>{{icon1}}</mat-icon>
+              <mat-hint align="end">{{inputUsername.value ? inputUsername.value.length : 0}}/15</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field hintLabel="Password" appearance="legacy" class="col-12">
+              <mat-label>Enter Password</mat-label>
+              <input type="password" matInput #inputPassword [(ngModel)] = "password" placeholder="ojaspatwardhan">
+              <mat-icon matSuffix>{{icon2}}</mat-icon>
+              <mat-hint align="end">{{inputPassword.value ? inputPassword.value.length : 0}}/8</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field hintLabel="Confirm Password" appearance="legacy" class="col-12">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput #password2 [(ngModel)] = "confirmPassword" (keyup) = "validatePassword(password, confirmPassword)" placeholder="ojaspatwardhan">
+            <mat-icon matSuffix>{{icon2}}</mat-icon>
+            <mat-hint align="end">{{password2.value ? password2.value.length : 0}}/8</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div id="RegisterErrorMessage" class="alert alert-danger" role="alert" style="display: none;">
+            {{errorMessage}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" (click)="onRegister(username, password)">Sign Up</button>
+    </div>
+  </div>
+</div>
+</div>
   <div class="accordion mt-5" id="accordionExample" style="margin-bottom: 15%;">
   <div class="card">
     <div class="card-header text-center" id="headingOne">
