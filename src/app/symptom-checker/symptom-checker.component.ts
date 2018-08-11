@@ -55,6 +55,7 @@ export class SymptomCheckerComponent implements OnInit {
     .then((response) => {
       this.token = response.Token;
       this.getSymptoms();
+      alert("Please click on the Symptoms tab to proceed");
     });
   }
 
@@ -74,11 +75,11 @@ export class SymptomCheckerComponent implements OnInit {
   //Getting Diagnosis
   getDiagnosis(symptom, gender, birthYear) {
   symptom = this.storageService.get(symptom);
-  if(gender == "Male" || gender == "male") {
+  if(gender == "Male" || gender == "male" || gender == "m") {
     this.genderValue = "Male";
     this.inputFlag = true;
   }
-  else if(gender == "Female" || gender == "female") {
+  else if(gender == "Female" || gender == "female" || gender == "f") {
     this.genderValue = "Female";
     this.inputFlag = true;
   }
