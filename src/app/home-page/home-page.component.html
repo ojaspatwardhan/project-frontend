@@ -183,16 +183,14 @@
               <mat-form-field hintLabel="Correct Username" appearance="legacy" class="col-12">
                 <mat-label>Enter username</mat-label>
                 <input id="usrname" matInput #loginUsername type="text" [(ngModel)] = "usernameLogin" placeholder="ojaspatwardhan">
-                <mat-icon matSuffix>{{icon1}}</mat-icon>
-                <mat-hint align="end">{{loginUsername.value ? loginUsername.value.length : 0}}/10</mat-hint>
+                <mat-icon matSuffix>account_circle</mat-icon>
               </mat-form-field>
           </div>
           <div class="row">
               <mat-form-field hintLabel="Enter correct password" appearance="legacy" class="col-12">
                 <mat-label>Enter Password</mat-label>
                 <input id="passwd" matInput #loginPassword type="password" [(ngModel)] = "passwordLogin" placeholder="ojaspatwardhan">
-                <mat-icon matSuffix>{{icon1}}</mat-icon>
-                <mat-hint align="end">{{loginPassword.value ? loginPassword.value.length : 0}}/10</mat-hint>
+                <mat-icon matSuffix>person_outline</mat-icon>
               </mat-form-field>
           </div>
           <div class="row">
