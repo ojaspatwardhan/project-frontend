@@ -50,11 +50,12 @@ export class SymptomCheckerComponent implements OnInit {
   validUser = false;
   cookieValue = "";
   loggedIn = false;
-  errorMessage;
+  username;
   password;
   confirmPassword;
   usernameLogin;
   passwordLogin;
+  errorMessage = "";
   icon1 = "sentiment_very_satisfied";
   icon2 = "sentiment_very_satisfied";
 
