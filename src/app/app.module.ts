@@ -9,7 +9,7 @@ import { AppointmentServiceClient } from './services/appointment.service.client'
 import { CookieService } from 'ngx-cookie-service';
 import { UserServiceClient } from './services/user.service.client';
 import { SymptomCheckerServiceClient } from './services/symptom-checker.service.client';
-
+import { EmailServiceClient } from './services/email.service.client';
 
 import {
   MatFormFieldModule,
@@ -76,6 +76,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     AppointmentServiceClient,
     UserServiceClient,
     SymptomCheckerServiceClient,
+    EmailServiceClient,
     CookieService
   ],
   bootstrap: [AppComponent]

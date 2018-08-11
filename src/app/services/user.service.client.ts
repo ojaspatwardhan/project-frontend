@@ -59,6 +59,11 @@ export class UserServiceClient {
     });
   }
 
+  findUserByEmail(emailId) {
+    return fetch("http://localhost:4000/api/forgotPassword/" + emailId)
+    .then(response => response.json());
+  }
+
   login(username, password) {
     var credentials = {username, password};
     return fetch("http://localhost:4000/api/login", {
