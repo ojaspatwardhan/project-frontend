@@ -2,11 +2,13 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~open-iconic/font/css/open-iconic-bootstrap.css';
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 html, body {
   height: 100%;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif, 'Fjalla One', sans-serif;;
 }
 
 /* .background-colour {
