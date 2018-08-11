@@ -20,9 +20,6 @@ export class SymptomCheckerComponent implements OnInit {
 
   constructor(@Inject(SESSION_STORAGE) private storageService: WebStorageService, private cookieService: CookieService, private symptomCheckerService: SymptomCheckerServiceClient, private service: UserServiceClient, private router: Router) { }
 
-  //Session variables
-  cookieValue = "";
-
   //
   uri = "https://sandbox-authservice.priaid.ch/login"
   apiKey = "ojas.patwardhan@gmail.com";
@@ -50,11 +47,16 @@ export class SymptomCheckerComponent implements OnInit {
   inputFlag = false;
 
   //User variables
-  validUser;
-  loggedIn;
+  validUser = false;
+  cookieValue = "";
+  loggedIn = false;
   errorMessage;
   password;
   confirmPassword;
+  usernameLogin;
+  passwordLogin;
+  icon1 = "sentiment_very_satisfied";
+  icon2 = "sentiment_very_satisfied";
 
   ngOnInit() {
     this.cookieValue = this.cookieService.get("username");
@@ -116,6 +118,39 @@ export class SymptomCheckerComponent implements OnInit {
   .then((info) => {
     this.info = info;
   });
+  }
+
+  validateUsername(username) {
+    if(username.length > 15) {
+      this.icon1 = "sentiment_dissatisfied";
+      this.errorMessage = "Please enter a username with max 15 characters";
+      $("#errorMessage").show("slow");
+    }
+    else {
+      this.icon1 = "sentiment_very_satisfied";
+      $("#errorMessage").hide("slow");
+    }
+  }
+
+  validatePassword(password, confirmPassword) {
+    if(password.length > 8 && confirmPassword.length > 8 && password != confirmPassword){
+      this.icon2 = "sentiment_dissatisfied";
+      this.errorMessage = "Passwords do not match";
+      $("#errorMessage").show("slow");
+    }
+    else if(password.length < 8 || confirmPassword.length < 8) {
+      this.icon2 = "sentiment_dissatisfied";
+      this.errorMessage = "Password must be 8 characters long";
+      $("#errorMessage").show("slow");
+    }
+    else {
+      this.icon2 = "sentiment_very_satisfied";
+      $("#errorMessage").hide("slow");
+    }
+  }
+
+  goToForgotPassword() {
+    this.router.navigate(['forgot-password']);
   }
 
   //Register

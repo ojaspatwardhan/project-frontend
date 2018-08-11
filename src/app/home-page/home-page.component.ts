@@ -26,6 +26,10 @@ export class HomePageComponent implements OnInit {
 
   constructor(private router: Router, private service: UserServiceClient, private cookieService: CookieService) { }
 
+  ngOnInit() {
+    this.cookieValue = this.cookieService.get("username");
+  }
+
   validateUsername(username) {
     if(username.length > 15) {
       this.icon1 = "sentiment_dissatisfied";
@@ -142,10 +146,6 @@ export class HomePageComponent implements OnInit {
     else {
       alert("Please Log in to schedule an appointment");
     }
-  }
-
-  ngOnInit() {
-    this.cookieValue = this.cookieService.get("username");
   }
 
 }

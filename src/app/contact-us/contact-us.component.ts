@@ -17,12 +17,17 @@ export class ContactUsComponent implements OnInit {
   marker: google.maps.Marker;
 
   //User variables
-  validUser;
-  loggedIn;
-  errorMessage;
+  validUser = false;
+  cookieValue = "";
+  loggedIn = false;
+  username;
   password;
   confirmPassword;
-  cookieValue = "";
+  usernameLogin;
+  passwordLogin;
+  errorMessage = "";
+  icon1 = "sentiment_very_satisfied";
+  icon2 = "sentiment_very_satisfied";
 
   constructor(private service: UserServiceClient, private cookieService: CookieService, private router: Router) { }
 
@@ -41,6 +46,39 @@ export class ContactUsComponent implements OnInit {
     animation: google.maps.Animation.DROP
   });
   this.marker.setMap(this.map);
+  }
+
+  validateUsername(username) {
+    if(username.length > 15) {
+      this.icon1 = "sentiment_dissatisfied";
+      this.errorMessage = "Please enter a username with max 15 characters";
+      $("#errorMessage").show("slow");
+    }
+    else {
+      this.icon1 = "sentiment_very_satisfied";
+      $("#errorMessage").hide("slow");
+    }
+  }
+
+  validatePassword(password, confirmPassword) {
+    if(password.length > 8 && confirmPassword.length > 8 && password != confirmPassword){
+      this.icon2 = "sentiment_dissatisfied";
+      this.errorMessage = "Passwords do not match";
+      $("#errorMessage").show("slow");
+    }
+    else if(password.length < 8 || confirmPassword.length < 8) {
+      this.icon2 = "sentiment_dissatisfied";
+      this.errorMessage = "Password must be 8 characters long";
+      $("#errorMessage").show("slow");
+    }
+    else {
+      this.icon2 = "sentiment_very_satisfied";
+      $("#errorMessage").hide("slow");
+    }
+  }
+
+  goToForgotPassword() {
+    this.router.navigate(['forgot-password']);
   }
 
   //Register
