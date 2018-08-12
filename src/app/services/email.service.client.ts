@@ -11,4 +11,8 @@ export class EmailServiceClient {
     console.log(emailId + " " + queryText);
     return fetch("https://lotus-lab-backend.herokuapp.com/api/queryEmail/" + emailId + "/" + queryText).then(response => response.json());
   }
+
+  sendGetInTouchEmail(emailId) {
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/queryEmail/" + emailId).then(response => response.json());
+  }
 }

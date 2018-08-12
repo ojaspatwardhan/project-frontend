@@ -10,7 +10,6 @@ export class FooterComponentComponent implements OnInit {
 
   //Query Variables
   email = "";
-  queryText = "";
 
   constructor(private emailService: EmailServiceClient) { }
 
@@ -19,7 +18,7 @@ export class FooterComponentComponent implements OnInit {
 
   //Query Email
   sendQuery() {
-  this.emailService.sendQueryEmail(this.email, this.queryText).then((response) => {
+  this.emailService.sendGetInTouchEmail(this.email).then((response) => {
     window.location.reload();
   });
 }
