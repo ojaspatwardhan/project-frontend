@@ -163,15 +163,15 @@ export class EditUserComponent implements OnInit {
 
   //Delete User
   deleteUser(id) {
-  console.log(id);
-  // this.userService.removeUser(id).then((response) => {
-  //   $("#userModal").modal("toggle");
-  //   this.userService.findAllUsers()
-  //   .then((users) => {
-  //     this.users = users;
-  //     console.log(this.users);
-  //   });
-  // });
+    console.log(id);
+    this.userService.removeUser(id).then((response) => {
+      $("#userModal").modal("toggle");
+      this.userService.findAllUsers()
+      .then((users) => {
+        this.users = users;
+        console.log(this.users);
+      });
+    });
   }
 
   //Get User
