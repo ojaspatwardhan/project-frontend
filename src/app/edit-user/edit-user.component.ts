@@ -165,7 +165,6 @@ export class EditUserComponent implements OnInit {
   deleteUser(id) {
     console.log(id);
     this.userService.removeUser(id).then((response) => {
-      $("#userModal").modal("toggle");
       this.userService.findAllUsers()
       .then((users) => {
         this.users = users;
