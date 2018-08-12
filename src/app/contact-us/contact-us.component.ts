@@ -55,7 +55,9 @@ export class ContactUsComponent implements OnInit {
 
   //Query Email
   sendQuery() {
-  this.emailService.sendQueryEmail(this.email, this.queryText);
+  this.emailService.sendQueryEmail(this.email, this.queryText).then((response) => {
+    window.location.reload();
+  });
 }
 
   validateUsername(username) {
