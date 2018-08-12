@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Username</mat-label>
+          <input [(ngModel)]="user.username" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>First Name</mat-label>
+          <input [(ngModel)]="user.firstName" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Last Name</mat-label>
+          <input [(ngModel)]="user.lastName" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Email</mat-label>
+          <input type="email" [(ngModel)]="user.email" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Address</mat-label>
+          <input type="text" [(ngModel)]="user.address" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+          <mat-label>Role</mat-label>
+          <input type="text" [(ngModel)]="user.role" matInput />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button mat-raised-button type="button" color="accent">Create</button>
+    </div>
+  </div>
+</div>

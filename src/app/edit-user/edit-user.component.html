@@ -1,0 +1,215 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg" >
+        <a class="navbar-brand" href="#">Lotus Lab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" routerLink="/services-page">Packages</a>
+            <a class="nav-item nav-link" routerLink="/symptom-checker">Symptom Checker</a>
+          </div>
+        </div>
+        <form class="form-inline" *ngIf="cookieValue == ''; else loggedIn">
+          <button type="button" class="btn btn-md btn-outline-primary mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
+          <button type="button" class="btn btn-md btn-outline-light my-1 mr-sm-2" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+          <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+  <ng-template #loggedIn>
+    <form class="form-inline">
+      <button type="button" class="btn btn-md btn-outline-danger mr-sm-2" (click)="logout()">Log Out</button>
+      <button type="button" class="btn btn-md btn-outline-light my-1 mr-sm-2" routerLink="/profile">Profile</button>
+      <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
+    </form>
+  </ng-template>
+  <!-- Users modal -->
+  <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+                  <mat-label>Username</mat-label>
+                  <input [(ngModel)]="user.username" matInput />
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+                  <mat-label>First Name</mat-label>
+                  <input [(ngModel)]="user.firstName" matInput />
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+                  <mat-label>Last Name</mat-label>
+                  <input [(ngModel)]="user.lastName" matInput />
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+                  <mat-label>Email</mat-label>
+                  <input type="email" [(ngModel)]="user.email" matInput />
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+                  <mat-label>Address</mat-label>
+                  <input type="text" [(ngModel)]="user.address" matInput />
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-md-12" appearance="legacy" color="primary">
+                  <mat-label>Role</mat-label>
+                  <input type="text" [(ngModel)]="user.role" matInput />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button mat-raised-button type="button" color="primary" (click)="updateUser(user)">Update</button>
+        <button mat-raised-button type="button" color="legacy" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Log in Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Log In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+              <mat-form-field hintLabel="Correct Username" appearance="legacy" class="col-12">
+                <mat-label>Enter username</mat-label>
+                <input id="usrname" matInput #loginUsername type="text" [(ngModel)] = "usernameLogin" placeholder="ojaspatwardhan">
+                <mat-icon matSuffix>account_circle</mat-icon>
+              </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field hintLabel="Enter correct password" appearance="legacy" class="col-12">
+                <mat-label>Enter Password</mat-label>
+                <input id="passwd" matInput #loginPassword type="password" [(ngModel)] = "passwordLogin" placeholder="ojaspatwardhan">
+                <mat-icon matSuffix>person_outline</mat-icon>
+              </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <a href="/forgot-password"><small>Forgot Password?</small></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div id="errorMessage" class="alert alert-danger" role="alert" style="display: none;">
+                {{errorMessage}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="login(usernameLogin, passwordLogin)">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sign up modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalCenterTitle">Sign Up</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+            <mat-form-field hintLabel="Max 15 characters" appearance="legacy" class="col-12">
+              <mat-label>Enter username</mat-label>
+              <input matInput #inputUsername type="text" [(ngModel)] = "username" (keyup) = "validateUsername(username)" placeholder="ojaspatwardhan">
+              <mat-icon matSuffix>{{icon1}}</mat-icon>
+              <mat-hint align="end">{{inputUsername.value ? inputUsername.value.length : 0}}/15</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field hintLabel="Password" appearance="legacy" class="col-12">
+              <mat-label>Enter Password</mat-label>
+              <input type="password" matInput #inputPassword [(ngModel)] = "password" placeholder="ojaspatwardhan">
+              <mat-icon matSuffix>{{icon2}}</mat-icon>
+              <mat-hint align="end">{{inputPassword.value ? inputPassword.value.length : 0}}/8</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field hintLabel="Confirm Password" appearance="legacy" class="col-12">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput #password2 [(ngModel)] = "confirmPassword" (keyup) = "validatePassword(password, confirmPassword)" placeholder="ojaspatwardhan">
+            <mat-icon matSuffix>{{icon2}}</mat-icon>
+            <mat-hint align="end">{{password2.value ? password2.value.length : 0}}/8</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div id="RegisterErrorMessage" class="alert alert-danger" role="alert" style="display: none;">
+            {{errorMessage}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" (click)="onRegister(username, password)">Sign Up</button>
+    </div>
+  </div>
+</div>
+</div>
+  <!-- Table for appointment list -->
+  <table class="table table-bordered table-dark my-4">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Password</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <th scope="row">{{user.username}}</th>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.password}}</td>
+      <td>{{user.email}}</td>
+      <td><button type="button" class="btn btn-md btn-outline-info" data-toggle="modal" data-target="#userModal" (click)="getUser(user._id)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<app-create-user></app-create-user>
+<app-footer-component></app-footer-component>
+</div>

@@ -26,6 +26,8 @@
     <input class="form-control col-4 ml-2 mr-2" name="status" [(ngModel)]="statusText" type="search" placeholder="Enter appointment status" />
     <button type="button" class="btn btn-md btn-outline-dark ml-2" (click)="showCustomersModal()">Customers</button>
     <button type="button" class="btn btn-md btn-outline-warning ml-2" (click)="showUsersModal()">Users</button>
+    <button type="button" class="btn btn-md btn-outline-info ml-2" routerLink="/edit-user">Edit User</button>
+    <button type="button" class="btn btn-md btn-outline-success ml-2" routerLink="/create-user">Create User</button>
   </form>
   <!-- Table for appointment list -->
   <table class="table table-bordered table-dark">

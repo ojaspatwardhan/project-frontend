@@ -107,7 +107,9 @@ export class ProfilePageComponent implements OnInit {
 }
 
   updateUser(user: User) {
-    this.service.updateUser(user).then(response => window.location.reload());
+    this.service.updateUser(user).then((response) => {
+      window.location.reload();
+    });
   }
 
   cancelAppointment(id) {

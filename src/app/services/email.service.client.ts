@@ -4,15 +4,15 @@ export class EmailServiceClient {
   //Local URL = http://localhost:4000/
   sendForgotPasswordEmail(emailId, password) {
     console.log(emailId + " " + password)
-    return fetch("https://lotus-lab-backend.herokuapp.com/api/email/" + emailId + "/" + password);
+    return fetch("http://localhost:4000/api/email/" + emailId + "/" + password);
   }
 
   sendQueryEmail(emailId, queryText) {
     console.log(emailId + " " + queryText);
-    return fetch("https://lotus-lab-backend.herokuapp.com/api/queryEmail/" + emailId + "/" + queryText).then(response => response.json());
+    return fetch("http://localhost:4000/api/queryEmail/" + emailId + "/" + queryText).then(response => response.json());
   }
 
   sendGetInTouchEmail(emailId) {
-    return fetch("https://lotus-lab-backend.herokuapp.com/api/queryEmail/" + emailId).then(response => response.json());
+    return fetch("http://localhost:4000/api/queryEmail/" + emailId).then(response => response.json());
   }
 }

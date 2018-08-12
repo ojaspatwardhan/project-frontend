@@ -38,6 +38,8 @@ import { FilterPipe} from './filters/filter.pipe';
 import { ServicesPageComponent } from './services-page/services-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     SymptomCheckerComponent,
     ServicesPageComponent,
     ContactUsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    EditUserComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
