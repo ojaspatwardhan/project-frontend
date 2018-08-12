@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { UserServiceClient } from '../services/user.service.client';
+import { EmailServiceClient } from '../services/email.service.client';
 import { } from '@types/googlemaps';
 declare var jquery:any;
 declare var $:any;
@@ -29,7 +30,11 @@ export class ContactUsComponent implements OnInit {
   icon1 = "sentiment_very_satisfied";
   icon2 = "sentiment_very_satisfied";
 
-  constructor(private service: UserServiceClient, private cookieService: CookieService, private router: Router) { }
+  //Query Variables
+  email = "";
+  queryText = "";
+
+  constructor(private service: UserServiceClient, private emailService: EmailServiceClient, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit() {
     this.cookieValue = this.cookieService.get("username");
@@ -47,6 +52,11 @@ export class ContactUsComponent implements OnInit {
   });
   this.marker.setMap(this.map);
   }
+
+  //Query Email
+  sendQuery() {
+  this.emailService.sendQueryEmail(this.email, this.queryText);
+}
 
   validateUsername(username) {
     if(username.length > 15) {
