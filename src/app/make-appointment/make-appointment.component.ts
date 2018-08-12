@@ -69,6 +69,7 @@ export class MakeAppointmentComponent implements OnInit {
   createAppointment() {
     this.startDateTime = moment(this.startDateTime).format();
     this.endDateTime = moment(this.startDateTime).add(30, "m").format();
+    console.log(this.startDateTime + " " + this.endDateTime);
     // this.tempStringArray = this.startDateTime.split(":");
     // this.oldMinutes = +this.tempStringArray[1];
     // if(this.oldMinutes == 30) {
