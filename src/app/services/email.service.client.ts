@@ -4,11 +4,11 @@ export class EmailServiceClient {
   //Local URL = http://localhost:4000/
   sendForgotPasswordEmail(emailId, password) {
     console.log(emailId + " " + password)
-    return fetch("http://localhost:4000/api/email/" + emailId + "/" + password);
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/email/" + emailId + "/" + password);
   }
 
   sendQueryEmail(emailId, queryText) {
     console.log(emailId + " " + queryText);
-    return fetch("http://localhost:4000/api/queryEmail/" + emailId + "/" + queryText);
+    return fetch("https://lotus-lab-backend.herokuapp.com/api/queryEmail/" + emailId + "/" + queryText);
   }
 }
