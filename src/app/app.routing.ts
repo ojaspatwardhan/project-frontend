@@ -10,7 +10,6 @@ import { ServicesPageComponent } from './services-page/services-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
-import { CreateUserComponent } from './create-user/create-user.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,7 +24,6 @@ const appRoutes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'edit-user', component: EditUserComponent },
-  { path: 'create-user', component: CreateUserComponent },
   { path: '**', component: HomePageComponent }
 ];
 
