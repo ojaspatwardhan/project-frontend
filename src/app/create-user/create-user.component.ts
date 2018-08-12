@@ -22,6 +22,10 @@ export class CreateUserComponent implements OnInit {
   constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit() {
+    this.userService.findAllUsers()
+    .then((users) => {
+      this.users = users;
+    });
   }
 
   createUserByAdmin(user: User){
@@ -38,7 +42,6 @@ export class CreateUserComponent implements OnInit {
         $("#address").val("");
         $("#role").val("");
       });
-      // window.location.reload();
     });
   }
 
