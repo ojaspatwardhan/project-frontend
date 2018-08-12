@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailServiceClient } from '../services/email.service.client';
 
 @Component({
   selector: 'app-footer-component',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponentComponent implements OnInit {
 
-  constructor() { }
+  //Query Variables
+  email = "";
+  queryText = "";
+
+  constructor(private emailService: EmailServiceClient) { }
 
   ngOnInit() {
   }
+
+  //Query Email
+  sendQuery() {
+  this.emailService.sendQueryEmail(this.email, this.queryText).then((response) => {
+    window.location.reload();
+  });
+}
 
 }
