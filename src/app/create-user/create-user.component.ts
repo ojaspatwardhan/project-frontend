@@ -41,6 +41,7 @@ export class CreateUserComponent implements OnInit {
         $("#email").val("");
         $("#address").val("");
         $("#role").val("");
+        window.location.reload();
       });
     });
   }
