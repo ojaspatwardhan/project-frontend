@@ -24,12 +24,12 @@
   <div class="row" style="margin-top: 2%;margin-left: 40%;">
       <input class="col-4" placeholder="Select date and time" id="picker1" [(ngModel)]="startDateTime" />
   </div>
-  <div class="row" style="margin-top: 2%;">
+  <div class="row" style="margin-top: 2%; margin-bottom: 30%;">
     <div class="col-6">
-      <button mat-raised-button color="primary" (click)="createAppointment()" style="margin-bottom: 35%; margin-top: 1%; margin-left: 90%;">Book</button>
+      <button mat-raised-button color="primary" (click)="createAppointment()" style="margin-top: 1%; margin-left: 90%;">Book</button>
     </div>
     <div class="col-6" *ngIf="slotIsAvailable == true">
-      <button type="button" mat-raised-button color="warn" (click)="showAppointmentModal()" style="margin-bottom: 35%; margin-top: 1%;">Confirm</button>
+      <button type="button" mat-raised-button color="warn" (click)="showAppointmentModal()" style="margin-top: 1%;">Confirm</button>
     </div>
   </div>
   <!-- <div class="row">

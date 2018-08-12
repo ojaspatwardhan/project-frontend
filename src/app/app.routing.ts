@@ -8,6 +8,7 @@ import { TechnicianPageComponent } from './technician-page/technician-page.compo
 import { SymptomCheckerComponent } from './symptom-checker/symptom-checker.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'symptom-checker', component: SymptomCheckerComponent },
   { path: 'services-page', component: ServicesPageComponent },
   { path: 'contact-us', component: ContactUsComponent },
+  { path: 'about-us', component: AboutUsComponent },
   { path: '**', component: HomePageComponent }
 ];
 

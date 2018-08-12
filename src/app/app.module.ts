@@ -37,6 +37,7 @@ import { SymptomCheckerComponent } from './symptom-checker/symptom-checker.compo
 import { FilterPipe} from './filters/filter.pipe';
 import { ServicesPageComponent } from './services-page/services-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     TechnicianPageComponent,
     SymptomCheckerComponent,
     ServicesPageComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
