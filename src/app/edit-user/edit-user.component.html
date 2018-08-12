@@ -84,7 +84,6 @@
       </div>
       <div class="modal-footer">
         <button mat-raised-button type="button" color="primary" (click)="updateUser(user)">Update</button>
-        <button mat-raised-button type="button" color="accent" (click)="deleteUser(user.id)">Remove</button>
         <button mat-raised-button type="button" color="legacy" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -207,7 +206,8 @@
       <td>{{user.lastName}}</td>
       <td>{{user.password}}</td>
       <td>{{user.email}}</td>
-      <td><button type="button" class="btn btn-md btn-outline-info" data-toggle="modal" data-target="#userModal" (click)="getUser(user._id)">Edit</button></td>
+      <td><button mat-raised-button type="button" color="legacy" data-toggle="modal" data-target="#userModal" (click)="getUser(user._id)">Edit</button></td>
+      <td><button mat-raised-button type="button" color="accent" (click)="deleteUser(user._id)">Remove</button></td>
     </tr>
   </tbody>
 </table>
