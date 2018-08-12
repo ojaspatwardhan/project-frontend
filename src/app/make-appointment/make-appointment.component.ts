@@ -88,6 +88,7 @@ export class MakeAppointmentComponent implements OnInit {
     // }
     this.service.createAppointment(this.accessToken, this.startDateTime, this.endDateTime)
     .then((appointment) => {
+      console.log(appointment);
       if(appointment != null) {
         this.slotIsAvailable = true;
         this.appointmentId = appointment.id;
