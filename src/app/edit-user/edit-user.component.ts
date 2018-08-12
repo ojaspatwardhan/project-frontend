@@ -114,7 +114,7 @@ export class EditUserComponent implements OnInit {
   logout() {
     this.cookieService.delete("username");
     this.loggedIn = false;
-    this.userService.logout().then(() => window.location.reload());
+    this.router.navigate(["home"]);
   }
 
   onRegister(username, password) {

@@ -16,9 +16,30 @@ export class CreateUserComponent implements OnInit {
   //User object
   user: User = new User();
 
+  //Users Array
+  users = [];
+
   constructor(private userService: UserServiceClient, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  createUserByAdmin(user: User){
+    this.userService.createUserByAdmin(user.username, user.password, user.firstName, user.lastName, user.email, user.address, user.role)
+    .then((user) => {
+      console.log(user);
+      this.userService.findAllUsers().then((users) => {
+        this.users = users;
+        $("#username").val("");
+        $("#password").val("");
+        $("#firstName").val("");
+        $("#lastName").val("");
+        $("#email").val("");
+        $("#address").val("");
+        $("#role").val("");
+      });
+      // window.location.reload();
+    });
   }
 
 }

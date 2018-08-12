@@ -18,6 +18,26 @@ export class UserServiceClient {
     });
   }
 
+  createUserByAdmin(username, password, firstName, lastName, email, address, role) {
+    const user = {
+      username: username,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      address: address,
+      role: role
+    };
+    return fetch("http://localhost:4000/api/user/admin", {
+      body: JSON.stringify(user),
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      }
+    }).then(response => response.json());
+  }
+
   profile() {
     return fetch("http://localhost:4000/api/profile",{
       credentials: "include",
