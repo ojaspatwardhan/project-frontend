@@ -87,11 +87,11 @@ export class SymptomCheckerComponent implements OnInit {
   //Getting Diagnosis
   getDiagnosis(symptom, gender, birthYear) {
   symptom = this.storageService.get(symptom);
-  if(gender == "Male" || gender == "male" || gender == "m") {
+  if(gender == "Male" || gender == "male" || gender == "m" || gender == "M") {
     this.genderValue = "Male";
     this.inputFlag = true;
   }
-  else if(gender == "Female" || gender == "female" || gender == "f") {
+  else if(gender == "Female" || gender == "female" || gender == "f" || gender == "F") {
     this.genderValue = "Female";
     this.inputFlag = true;
   }
