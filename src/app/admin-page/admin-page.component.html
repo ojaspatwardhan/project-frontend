@@ -23,7 +23,7 @@
   </div>
   <form class="form-inline my-2">
     <input class="form-control col-4" name="appointment" [(ngModel)]="searchText" type="search" placeholder="Enter customer name with capitalization" />
-    <input class="form-control col-4 ml-2 mr-2" name="status" [(ngModel)]="statusText" type="search" placeholder="Enter appointment status" />
+    <input class="form-control col-4 ml-2 mr-2" name="status" [(ngModel)]="statusText" type="search" placeholder="Enter appointment status e.g BK, CN, IN" />
     <button type="button" class="btn btn-md btn-outline-dark ml-2" (click)="showCustomersModal()">Customers</button>
     <button type="button" class="btn btn-md btn-outline-warning ml-2" (click)="showUsersModal()">Users</button>
     <button type="button" class="btn btn-md btn-outline-info ml-2" routerLink="/edit-user">Create/ Edit User</button>
