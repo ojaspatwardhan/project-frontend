@@ -14,7 +14,7 @@
           </div>
         </div>
         <form class="form-inline" *ngIf="cookieValue == ''; else loggedIn">
-          <button type="button" class="btn btn-md btn-outline-primary mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
+          <button type="button" class="btn btn-md btn-outline-light mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
           <button type="button" class="btn btn-md btn-outline-light my-1 mr-sm-2" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
           <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
         </form>
@@ -28,6 +28,23 @@
       <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
     </form>
   </ng-template>
+  <div class="row my-4">
+    <div class="col-12">
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="./assets/tejas.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="./assets/verticalCharlie.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="./assets/IMG_4957.JPG" alt="Third slide">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row" style="margin-top: 2%;">
     <div class="col-12">
       <h4>Packages</h4>

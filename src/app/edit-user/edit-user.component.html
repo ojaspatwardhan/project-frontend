@@ -14,7 +14,7 @@
           </div>
         </div>
         <form class="form-inline" *ngIf="cookieValue == ''; else loggedIn">
-          <button type="button" class="btn btn-md btn-outline-primary mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
+          <button type="button" class="btn btn-md btn-outline-light mr-sm-2" data-toggle="modal" data-target="#loginModal">Log In</button>
           <button type="button" class="btn btn-md btn-outline-light my-1 mr-sm-2" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
           <button type="button" class="btn btn-md btn-outline-info my-1 mr-sm-2" (click)="isLoggedIn()">Make an appointment</button>
         </form>
@@ -203,6 +203,7 @@
       <th scope="col">Last Name</th>
       <th scope="col">Password</th>
       <th scope="col">Email</th>
+      <th scope="col">Role</th>
     </tr>
   </thead>
   <tbody>
@@ -212,6 +213,7 @@
       <td>{{user.lastName}}</td>
       <td>{{user.password}}</td>
       <td>{{user.email}}</td>
+      <td>{{user.role}}</td>
       <td><button mat-raised-button type="button" color="legacy" data-toggle="modal" data-target="#userModal" (click)="getUser(user._id)">Edit</button></td>
       <td><button mat-raised-button type="button" color="accent" (click)="deleteUser(user._id)">Remove</button></td>
     </tr>
