@@ -67,7 +67,7 @@ export class SymptomCheckerComponent implements OnInit {
     .then((response) => {
       this.token = response.Token;
       this.getSymptoms();
-      alert("Please click on the Symptoms tab to proceed");
+      // alert("Please click on the Symptoms tab to proceed");
     });
   }
 
