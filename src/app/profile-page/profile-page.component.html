@@ -38,7 +38,7 @@
       <div class="row">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
           <mat-label>First Name</mat-label>
-          <input [(ngModel)]="user.firstName" matInput />
+          <input id="firstName" [(ngModel)]="user.firstName" required matInput />
         </mat-form-field>
       </div>
       <div class="row">
@@ -50,7 +50,7 @@
       <div class="row">
         <mat-form-field class="col-md-12" appearance="outline" color="primary">
           <mat-label>Email</mat-label>
-          <input type="email" [(ngModel)]="user.email" matInput />
+          <input id="email" type="email" [(ngModel)]="user.email" required matInput />
         </mat-form-field>
       </div>
       <div class="row">
@@ -61,6 +61,13 @@
       </div>
       <div class="row">
         <button mat-raised-button color="accent" class="col-md-12" (click) = "updateUser(user)">Update</button>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <div id="errorMessage" class="alert alert-danger" role="alert" style="display: none;">
+            {{errorMessage}}
+          </div>
+        </div>
       </div>
       <!-- <div class="row">
         <button mat-raised-button color="primary" class="col-md-12" (click) = "logout()" style="margin-top: 2%;">Logout</button>

@@ -22,6 +22,7 @@ export class ProfilePageComponent implements OnInit {
   userId;
   appointmentId;
   newAppointmentId;
+  errorMessage = "";
 
   //Available Times Array
   availableTimes = [];
@@ -107,9 +108,15 @@ export class ProfilePageComponent implements OnInit {
 }
 
   updateUser(user: User) {
-    this.service.updateUser(user).then((response) => {
-      window.location.reload();
-    });
+    if( this.user.email == "" || this.user.firstName == "") {
+      this.errorMessage = "First name and Email are required";
+      $("#errorMessage").slideDown();
+    }
+    else {
+      this.service.updateUser(user).then((response) => {
+        window.location.reload();
+      });
+    }
   }
 
   cancelAppointment(id) {
