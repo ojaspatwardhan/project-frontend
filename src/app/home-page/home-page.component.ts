@@ -112,7 +112,6 @@ export class HomePageComponent implements OnInit {
             this.validUser = false;
             this.errorMessage = "Username is already taken";
             $("#RegisterErrorMessage").slideDown();
-            return;
           }
           else if(this.password.length < 8 || this.confirmPassword.length < 8) {
             this.validUser = false;
@@ -124,7 +123,7 @@ export class HomePageComponent implements OnInit {
           }
         })
       }).then(() => {
-        if(this.validUser) {
+        if(this.validUser == true) {
           this.service.createUser(username, password)
           .then(() => {
             this.cookieService.set("username", username);
