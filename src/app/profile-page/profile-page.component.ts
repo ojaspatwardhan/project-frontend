@@ -23,6 +23,8 @@ export class ProfilePageComponent implements OnInit {
   appointmentId;
   newAppointmentId;
   errorMessage = "";
+  firstName = "";
+  email = "";
 
   //Available Times Array
   availableTimes = [];
@@ -108,7 +110,9 @@ export class ProfilePageComponent implements OnInit {
 }
 
   updateUser(user: User) {
-    if( this.user.email == "" || this.user.firstName == "") {
+    this.firstName = $("#firstName").val();
+    this.email = $("#email").val();
+    if( this.firstName == "" || this.email == "") {
       this.errorMessage = "First name and Email are required";
       $("#errorMessage").slideDown();
     }
