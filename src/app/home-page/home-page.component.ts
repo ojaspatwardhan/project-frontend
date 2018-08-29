@@ -112,14 +112,17 @@ export class HomePageComponent implements OnInit {
             this.validUser = false;
             this.errorMessage = "Username is already taken";
             $("#RegisterErrorMessage").slideDown();
+            return;
           }
           else if(this.password.length < 8 || this.confirmPassword.length < 8) {
             this.validUser = false;
             this.errorMessage = "Password has to be at least 8 characters in length";
             $("#RegisterErrorMessage").slideDown();
+            return;
           }
           else {
             this.validUser = true;
+            return;
           }
         })
       }).then(() => {
